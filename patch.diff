@@ -1,0 +1,106 @@
+From 07b869bbfeff0ba45d473acec113d2967f86385b Mon Sep 17 00:00:00 2001
+From: Dennis Shen <dennisshen@melaleuca.com>
+Date: Tue, 21 Mar 2023 09:50:03 +0800
+Subject: [PATCH] Modify SiteCoreAPIUrl in parameter store for ap-northeast-2
+
+---
+ ap-northeast-2/Development/dv_vars.yml         | 3 ++-
+ ap-northeast-2/Development/qa_vars.yml         | 3 ++-
+ ap-northeast-2/Development/st_vars.yml         | 3 ++-
+ ap-northeast-2/Development/ua_vars.yml         | 3 ++-
+ ap-northeast-2/Production/pd_vars.yml          | 3 ++-
+ ap-northeast-2/Production/prod-param-store.yml | 1 +
+ ap-northeast-2/param-store.yml                 | 1 +
+ 7 files changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/ap-northeast-2/Development/dv_vars.yml b/ap-northeast-2/Development/dv_vars.yml
+index d778814..4013c3e 100644
+--- a/ap-northeast-2/Development/dv_vars.yml
++++ b/ap-northeast-2/Development/dv_vars.yml
+@@ -21,4 +21,5 @@ logout_url_default: https://dvkrweb.melaleuca.com
+ sitecore_api_endpoint: https://qacm.melaleuca.com
+ 
+ #ExternalServices vars
+-sitecore_api_endpoints_kr: https://productstore-qakr.melaleuca.com
+\ No newline at end of file
++sitecore_api_endpoints_kr: https://productstore2-qakr.melaleuca.com
++sitecore_api_endpoints_jp: https://productstore2-qajp.melaleuca.com
+\ No newline at end of file
+diff --git a/ap-northeast-2/Development/qa_vars.yml b/ap-northeast-2/Development/qa_vars.yml
+index 46e027b..e32dd65 100644
+--- a/ap-northeast-2/Development/qa_vars.yml
++++ b/ap-northeast-2/Development/qa_vars.yml
+@@ -21,4 +21,5 @@ logout_url_default: https://qakrweb.melaleuca.com
+ sitecore_api_endpoint: https://qacm.melaleuca.com
+ 
+ #ExternalServices vars
+-sitecore_api_endpoints_kr: https://productstore-qakr.melaleuca.com
+\ No newline at end of file
++sitecore_api_endpoints_kr: https://productstore2-qakr.melaleuca.com
++sitecore_api_endpoints_jp: https://productstore2-qajp.melaleuca.com
+\ No newline at end of file
+diff --git a/ap-northeast-2/Development/st_vars.yml b/ap-northeast-2/Development/st_vars.yml
+index bae3843..0b6222d 100644
+--- a/ap-northeast-2/Development/st_vars.yml
++++ b/ap-northeast-2/Development/st_vars.yml
+@@ -21,4 +21,5 @@ logout_url_default: https://stkrweb.melaleuca.com
+ sitecore_api_endpoint: https://intcm.melaleuca.com
+ 
+ #ExternalServices vars
+-sitecore_api_endpoints_kr: https://productstore-qakr.melaleuca.com
+\ No newline at end of file
++sitecore_api_endpoints_kr: https://productstore2-qakr.melaleuca.com
++sitecore_api_endpoints_jp: https://productstore2-qajp.melaleuca.com
+\ No newline at end of file
+diff --git a/ap-northeast-2/Development/ua_vars.yml b/ap-northeast-2/Development/ua_vars.yml
+index 14bda09..44a34d8 100644
+--- a/ap-northeast-2/Development/ua_vars.yml
++++ b/ap-northeast-2/Development/ua_vars.yml
+@@ -21,4 +21,5 @@ logout_url_default: https://uakrweb.melaleuca.com
+ sitecore_api_endpoint: https://uatcm.melaleuca.com
+ 
+ #ExternalServices vars
+-sitecore_api_endpoints_kr: https://productstore-qakr.melaleuca.com
+\ No newline at end of file
++sitecore_api_endpoints_kr: https://productstore2-qakr.melaleuca.com
++sitecore_api_endpoints_jp: https://productstore2-qajp.melaleuca.com
+\ No newline at end of file
+diff --git a/ap-northeast-2/Production/pd_vars.yml b/ap-northeast-2/Production/pd_vars.yml
+index bed63fc..1872953 100644
+--- a/ap-northeast-2/Production/pd_vars.yml
++++ b/ap-northeast-2/Production/pd_vars.yml
+@@ -17,4 +17,5 @@ logout_url_default: https://kr.melaleuca.com
+ sitecore_api_endpoint: https://dep.melaleuca.com
+ 
+ #ExternalServices vars
+-sitecore_api_endpoints_kr: https://beta-kr.melaleuca.com
+\ No newline at end of file
++sitecore_api_endpoints_kr: https://kr.melaleuca.com
++sitecore_api_endpoints_jp: https://jp.melaleuca.com
+\ No newline at end of file
+diff --git a/ap-northeast-2/Production/prod-param-store.yml b/ap-northeast-2/Production/prod-param-store.yml
+index 786b813..6c0ee42 100644
+--- a/ap-northeast-2/Production/prod-param-store.yml
++++ b/ap-northeast-2/Production/prod-param-store.yml
+@@ -119,4 +119,5 @@
+       - { name: "/software/configuration/services/{{ environment_full_name }}/GetCartFromLegacy", desc: "Boolean value to determine if cart should be read from on-prem database", val: "True", type: "String" }
+       - { name: "/software/configuration/services/{{ environment_full_name }}/GetShoppingListsFromLegacy", desc: "Boolean value to determine if shopping lists should be read from on-prem database", val: "True", type: "String" }
+       - { name: "/software/configuration/ExternalServices/{{ environment_full_name }}/SiteCore/{{ market_full_name_kr }}/SiteCoreApiEndPoints", desc: "SiteCore API End Points", val: "{{ sitecore_api_endpoints_kr }}", type: "String" }
++      - { name: "/software/configuration/ExternalServices/{{ environment_full_name }}/SiteCore/{{ market_full_name_jp }}/SiteCoreApiEndPoints", desc: "SiteCore API End Points", val: "{{ sitecore_api_endpoints_jp }}", type: "String" }
+     
+\ No newline at end of file
+diff --git a/ap-northeast-2/param-store.yml b/ap-northeast-2/param-store.yml
+index 847c053..9939eab 100644
+--- a/ap-northeast-2/param-store.yml
++++ b/ap-northeast-2/param-store.yml
+@@ -109,6 +109,7 @@
+       - { name: "/software/configuration/services/{{ environment_full_name }}/GetCartFromLegacy", desc: "Boolean value to determine if cart should be read from on-prem database", val: "True", type: "String" }
+       - { name: "/software/configuration/services/{{ environment_full_name }}/GetShoppingListsFromLegacy", desc: "Boolean value to determine if shopping lists should be read from on-prem database", val: "True", type: "String" }
+       - { name: "/software/configuration/ExternalServices/{{ environment_full_name }}/SiteCore/{{ market_full_name_kr }}/SiteCoreApiEndPoints", desc: "SiteCore API End Points", val: "{{ sitecore_api_endpoints_kr }}", type: "String" }
++      - { name: "/software/configuration/ExternalServices/{{ environment_full_name }}/SiteCore/{{ market_full_name_jp }}/SiteCoreApiEndPoints", desc: "SiteCore API End Points", val: "{{ sitecore_api_endpoints_jp }}", type: "String" }
+ 
+   - name: "Deploy Specific Parameter Store values for UA"
+     aws_ssm_parameter_store:
+-- 
+2.28.0.windows.1
+
